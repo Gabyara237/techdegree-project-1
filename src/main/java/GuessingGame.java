@@ -12,5 +12,8 @@ public class GuessingGame {
 
         Jar jar = new Jar(itemInput,maximumNumberInput);
         
+        jar.fill();
+        System.out.printf("How many %s are in the jar? Pick a number between 1 and %d. %n", itemInput ,maximumNumberInput);
+        int userGuessedNumber = scanner.nextInt();
     }
 }
