@@ -18,16 +18,19 @@ public class GuessingGame {
 
         while( userGuessedNumber != currentNumberItems ){
 
-            userGuessedNumber = prompter.userGuessedNumber();
-            
-            if( userGuessedNumber == currentNumberItems){
-                break;
+            try{
+                userGuessedNumber = prompter.userGuessedNumber(currentNumberItems);
+                if( userGuessedNumber == currentNumberItems){
+                    break;
+                }
+
+                prompter.feedback(userGuessedNumber < currentNumberItems);
+                guessAttemptCounter++;
+
+            }catch(IllegalArgumentException iae){
+                prompter.displayIaeMessage(iae.getMessage());
             }
-
-            prompter.feedback(userGuessedNumber < currentNumberItems);
             
-
-            guessAttemptCounter++;
         }
         prompter.displayScore(guessAttemptCounter);
         

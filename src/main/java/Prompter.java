@@ -19,9 +19,12 @@ public class Prompter{
         return maximumNumberInput;
     }
 
-    public int userGuessedNumber(){
+    public int userGuessedNumber(int currentNumberItems){
         System.out.printf("How many %s are in the jar? Pick a number between 1 and %d. %n", itemInput ,maximumNumberInput);
         userGuessedNumber = scanner.nextInt();
+        if(userGuessedNumber > maximumNumberInput){
+            throw new IllegalArgumentException(String.format(" Your guess must be less than %d ", maximumNumberInput));
+        }
         return userGuessedNumber;
     }
 
@@ -36,5 +39,9 @@ public class Prompter{
 
     public void displayScore(int count){
         System.out.printf("You got it in %d attempt(s)! ", count + 1);
+    }
+
+    public void displayIaeMessage(String message){
+        System.out.printf("%s please try again. %n", message);
     }
 }
