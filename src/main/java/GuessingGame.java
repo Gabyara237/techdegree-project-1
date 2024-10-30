@@ -21,9 +21,11 @@ public class GuessingGame {
         while( userGuessedNumber != currentNumberItems ){
             System.out.printf("How many %s are in the jar? Pick a number between 1 and %d. %n", itemInput ,maximumNumberInput);
             userGuessedNumber = scanner.nextInt();
+            
             if( userGuessedNumber == currentNumberItems){
                 break;
             }
+
             if( userGuessedNumber < currentNumberItems){
                 System.out.printf("Your number is lower than the actual number of %s %n", itemInput);
             }else{
@@ -31,8 +33,8 @@ public class GuessingGame {
             }
 
             guessAttemptCounter++;
-
         }
+        System.out.printf("You got it in %d attempt(s): ",guessAttemptCounter+1);
         
     }
 }
